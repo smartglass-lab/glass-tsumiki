@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=600, height=600, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Meta Ray-Ban Display 用のタイミング積み上げゲーム。左右に往復するブロックをタップで落として重ね、はみ出した部分は切り落とされる。ぴったりならPERFECT。依存ライブラリなし・オフライン動作。">
+  <meta name="mrbd-web-app-capable" content="yes">
+  <title>グラスつみき — Glass Tsumiki</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="cv" width="600" height="600"></canvas>
+
+    <div id="hud" class="hidden">
+      <span id="hud-left">🧱 グラスつみき</span>
+      <span id="hud-right"></span>
+    </div>
+    <div id="hint" class="hidden"></div>
+
+    <!-- タイトル -->
+    <div id="title" class="screen">
+      <div class="panel">
+        <canvas id="logo" width="160" height="110"></canvas>
+        <div class="t-title">グラスつみき</div>
+        <div class="t-sub">タイミングよくタップして、高く積み上げよう。</div>
+        <div class="menu-list" id="title-list"></div>
+      </div>
+    </div>
+
+    <!-- 一時停止メニュー -->
+    <div id="menu" class="screen hidden">
+      <div class="panel">
+        <div class="t-title small">一時停止</div>
+        <div class="t-sub" id="menu-sub"></div>
+        <div class="menu-list" id="menu-list"></div>
+      </div>
+    </div>
+
+    <!-- 結果 -->
+    <div id="result" class="hidden">
+      <div class="panel result">
+        <div class="r-score"><span id="r-num">0</span><small>段</small><span id="r-new" class="hidden">NEW BEST!</span></div>
+        <div class="t-sub" id="r-sub"></div>
+        <div class="menu-list row" id="result-list"></div>
+      </div>
+    </div>
+
+    <!-- つかいかた -->
+    <div id="howto" class="screen hidden">
+      <div class="panel wide">
+        <div class="t-title small">つかいかた</div>
+        <ul class="howto">
+          <li>往復するブロックを<b class="key">タップ</b>で下の段に落とす</li>
+          <li>はみ出た部分は<b class="warn">切り落とされ</b>、だんだん細くなる</li>
+          <li>ぴったりなら <b class="gold">PERFECT</b>。幅が少し戻り、連続でコンボ</li>
+          <li>重ならなかったらおしまい。タワー全体を引きで見せる</li>
+          <li>高くなるほど速くなる。<b class="key">← ↑ ↓</b> で一時停止</li>
+        </ul>
+        <div class="menu-list" id="howto-list"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
